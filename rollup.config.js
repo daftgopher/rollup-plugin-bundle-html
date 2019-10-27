@@ -7,12 +7,14 @@ export default {
   input: 'src/index.js',
   output: [
     { format: 'cjs', file: pkg['main'] },
-    { format: 'es', file: pkg['module'] }
+    { format: 'es', file: pkg['module'] },
   ],
   external: ['fs', 'path', 'crypto'],
   plugins: [
     resolve(),
     commonjs(),
-    buble()
-  ]
+    buble({
+      transforms: { forOf: false, asyncAwait: false },
+    }),
+  ],
 };
