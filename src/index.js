@@ -106,7 +106,7 @@ export default (opt = {}) => {
 				}
 
 				if (type === 'js') {
-					const script = `<script type="text/javascript" src="${src}"></script>\n`;
+					const script = `<script defer src="${src}"></script>\n`;
 					// node.inject will cover the inject
 					if (node.inject === 'head' || inject === 'head') {
 						head.append(script);
